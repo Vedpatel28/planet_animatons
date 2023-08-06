@@ -1,6 +1,5 @@
 // ignore_for_file: camel_case_types
 
-
 import 'package:flutter/material.dart';
 
 class home_Page extends StatefulWidget {
@@ -32,231 +31,143 @@ class _home_PageState extends State<home_Page>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
+      body: Stack(
         children: [
-          SizedBox(height: 20),
-          Stack(
-            children: [
-              AnimatedContainer(
+          Transform.translate(
+            offset: const Offset(-150, 10),
+            child: AnimatedRotation(
+              turns: turns,
+              curve: Curves.easeInOutQuint,
+              duration: const Duration(seconds: 1),
+              child: AnimatedContainer(
                 duration: const Duration(seconds: 1),
-                height: 300,
-                width: 300,
+                height: 500,
+                width: 500,
                 decoration: const BoxDecoration(
-                  color: Colors.black87,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701928157.jpg",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.black54,
+                      Colors.white24,
+                      Colors.blue,
+                    ],
+                    end: Alignment.bottomRight,
+                  ),
                   shape: BoxShape.circle,
                 ),
-              ),
-              Transform.translate(
-                offset: const Offset(20, 1),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                child: Stack(children: [
+                  Transform.translate(
+                    offset: const Offset(130, -10),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 100,
+                        width: 100,
+                        duration: const Duration(
+                          minutes: 3,
                         ),
-                        fit: BoxFit.cover,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(160, -12),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                  Transform.translate(
+                    offset: const Offset(250, 100),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 100,
+                        width: 100,
+                        duration: const Duration(
+                          minutes: 3,
                         ),
-                        fit: BoxFit.cover,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://nineplanets.org/wp-content/uploads/2020/03/mercury.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(240, 100),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                  Transform.translate(
+                    offset: const Offset(100, 250),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 100,
+                        width: 100,
+                        duration: const Duration(
+                          minutes: 3,
                         ),
-                        fit: BoxFit.cover,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(180, 220),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                  Transform.translate(
+                    offset: const Offset(-50, 110),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 100,
+                        width: 100,
+                        duration: const Duration(
+                          minutes: 3,
                         ),
-                        fit: BoxFit.cover,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ]),
               ),
-              Transform.translate(
-                offset: const Offset(40, 220),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              //
-              Transform.translate(
-                offset: const Offset(20, 1),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(20, 1),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(20, 1),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Transform.translate(
-                offset: const Offset(20, 1),
-                child: AnimatedRotation(
-                  turns: 50,
-                  duration: const Duration(minutes: 20),
-                  child: AnimatedContainer(
-                    height: 100,
-                    width: 100,
-                    duration: const Duration(
-                      minutes: 3,
-                    ),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            turns += 1 / 4;
+          });
+        },
+        child: const Icon(
+          Icons.refresh,
+        ),
       ),
     );
   }
@@ -304,3 +215,97 @@ class _home_PageState extends State<home_Page>
 // ],
 // ),
 // )
+
+// //
+// Transform.translate(
+//   offset: const Offset(20, 1),
+//   child: AnimatedRotation(
+//     turns: 50,
+//     duration: const Duration(minutes: 20),
+//     child: AnimatedContainer(
+//       height: 100,
+//       width: 100,
+//       duration: const Duration(
+//         minutes: 3,
+//       ),
+//       decoration: const BoxDecoration(
+//         shape: BoxShape.circle,
+//         image: DecorationImage(
+//           image: NetworkImage(
+//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+//           ),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     ),
+//   ),
+// ),
+// Transform.translate(
+//   offset: const Offset(20, 1),
+//   child: AnimatedRotation(
+//     turns: 50,
+//     duration: const Duration(minutes: 20),
+//     child: AnimatedContainer(
+//       height: 100,
+//       width: 100,
+//       duration: const Duration(
+//         minutes: 3,
+//       ),
+//       decoration: const BoxDecoration(
+//         shape: BoxShape.circle,
+//         image: DecorationImage(
+//           image: NetworkImage(
+//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+//           ),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     ),
+//   ),
+// ),
+// Transform.translate(
+//   offset: const Offset(20, 1),
+//   child: AnimatedRotation(
+//     turns: 50,
+//     duration: const Duration(minutes: 20),
+//     child: AnimatedContainer(
+//       height: 100,
+//       width: 100,
+//       duration: const Duration(
+//         minutes: 3,
+//       ),
+//       decoration: const BoxDecoration(
+//         shape: BoxShape.circle,
+//         image: DecorationImage(
+//           image: NetworkImage(
+//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+//           ),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     ),
+//   ),
+// ),
+// Transform.translate(
+//   offset: const Offset(20, 1),
+//   child: AnimatedRotation(
+//     turns: 50,
+//     duration: const Duration(minutes: 20),
+//     child: AnimatedContainer(
+//       height: 100,
+//       width: 100,
+//       duration: const Duration(
+//         minutes: 3,
+//       ),
+//       decoration: const BoxDecoration(
+//         shape: BoxShape.circle,
+//         image: DecorationImage(
+//           image: NetworkImage(
+//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+//           ),
+//           fit: BoxFit.cover,
+//         ),
+//       ),
+//     ),
+//   ),
+// ),
