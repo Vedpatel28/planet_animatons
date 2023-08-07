@@ -22,7 +22,7 @@ class _home_PageState extends State<home_Page>
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
-        milliseconds: 400,
+        milliseconds: 600,
       ),
     );
   }
@@ -34,7 +34,7 @@ class _home_PageState extends State<home_Page>
       body: Stack(
         children: [
           Transform.translate(
-            offset: const Offset(-150, 10),
+            offset: const Offset(-150, -200),
             child: AnimatedRotation(
               turns: turns,
               curve: Curves.easeInOutQuint,
@@ -44,20 +44,13 @@ class _home_PageState extends State<home_Page>
                 height: 500,
                 width: 500,
                 decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701928157.jpg",
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.black54,
-                      Colors.white24,
-                      Colors.blue,
-                    ],
-                    end: Alignment.bottomRight,
-                  ),
+                  // gradient: LinearGradient(
+                  //   colors: [
+                  //     Colors.black54,
+                  //     Colors.blue,
+                  //   ],
+                  //   end: Alignment.bottomRight,
+                  // ),
                   shape: BoxShape.circle,
                 ),
                 child: Stack(children: [
@@ -67,8 +60,8 @@ class _home_PageState extends State<home_Page>
                       turns: turns,
                       duration: const Duration(minutes: 2),
                       child: AnimatedContainer(
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 200,
                         duration: const Duration(
                           minutes: 3,
                         ),
@@ -85,13 +78,13 @@ class _home_PageState extends State<home_Page>
                     ),
                   ),
                   Transform.translate(
-                    offset: const Offset(250, 100),
+                    offset: const Offset(320, 100),
                     child: AnimatedRotation(
                       turns: turns,
                       duration: const Duration(minutes: 2),
                       child: AnimatedContainer(
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 200,
                         duration: const Duration(
                           minutes: 3,
                         ),
@@ -108,13 +101,59 @@ class _home_PageState extends State<home_Page>
                     ),
                   ),
                   Transform.translate(
-                    offset: const Offset(100, 250),
+                    offset: const Offset(250, 200),
                     child: AnimatedRotation(
                       turns: turns,
                       duration: const Duration(minutes: 2),
                       child: AnimatedContainer(
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 200,
+                        duration: const Duration(
+                          minutes: 3,
+                        ),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-10, 300),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 200,
+                        width: 200,
+                        duration: const Duration(
+                          minutes: 3,
+                        ),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(150, 400),
+                    child: AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(minutes: 2),
+                      child: AnimatedContainer(
+                        height: 200,
+                        width: 200,
                         duration: const Duration(
                           minutes: 3,
                         ),
@@ -136,8 +175,8 @@ class _home_PageState extends State<home_Page>
                       turns: turns,
                       duration: const Duration(minutes: 2),
                       child: AnimatedContainer(
-                        height: 100,
-                        width: 100,
+                        height: 200,
+                        width: 200,
                         duration: const Duration(
                           minutes: 3,
                         ),
@@ -162,7 +201,7 @@ class _home_PageState extends State<home_Page>
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            turns += 1 / 4;
+            turns += 1 / 8;
           });
         },
         child: const Icon(
