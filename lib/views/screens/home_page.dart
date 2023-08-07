@@ -53,146 +53,156 @@ class _home_PageState extends State<home_Page>
                   // ),
                   shape: BoxShape.circle,
                 ),
-                child: Stack(children: [
-                  Transform.translate(
-                    offset: const Offset(130, -10),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                            ),
-                            fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Transform.translate(
+                      offset: const Offset(130, -10),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(minutes: 2),
+                        child: AnimatedContainer(
+                          height: 200,
+                          width: 200,
+                          duration: const Duration(
+                            minutes: 3,
                           ),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: const Text("1"),
                         ),
                       ),
                     ),
-                  ),
-                  Transform.translate(
-                    offset: const Offset(320, 100),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://nineplanets.org/wp-content/uploads/2020/03/mercury.png",
-                            ),
-                            fit: BoxFit.cover,
+                    // Transform.translate(
+                    //   offset: const Offset(100, 200),
+                    //   child: AnimatedRotation(
+                    //     turns: turns,
+                    //     duration: const Duration(minutes: 2),
+                    //     child: AnimatedContainer(
+                    //       height: 200,
+                    //       width: 200,
+                    //       duration: const Duration(
+                    //         minutes: 3,
+                    //       ),
+                    //       decoration: const BoxDecoration(
+                    //         shape: BoxShape.circle,
+                    //         image: DecorationImage(
+                    //           image: NetworkImage(
+                    //             "https://nineplanets.org/wp-content/uploads/2020/03/mercury.png",
+                    //           ),
+                    //           fit: BoxFit.cover,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    //  com
+                    Transform.translate(
+                      offset: const Offset(300, 100),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(minutes: 2),
+                        child: AnimatedContainer(
+                          height: 200,
+                          width: 200,
+                          duration: const Duration(
+                            minutes: 3,
                           ),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                "https://www.pngmart.com/files/22/Planet-PNG-HD-Isolated.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Text("2"),
                         ),
                       ),
                     ),
-                  ),
-                  Transform.translate(
-                    offset: const Offset(250, 200),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                            ),
-                            fit: BoxFit.cover,
+                    // com
+                    Transform.translate(
+                      offset: const Offset(-10, 300),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(minutes: 2),
+                        child: AnimatedContainer(
+                          height: 200,
+                          width: 200,
+                          duration: const Duration(
+                            minutes: 3,
                           ),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                "https://static.vecteezy.com/system/resources/thumbnails/016/778/853/small/planet-galaxy-space-free-png.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Text("3"),
                         ),
                       ),
                     ),
-                  ),
-                  Transform.translate(
-                    offset: const Offset(-10, 300),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                            ),
-                            fit: BoxFit.cover,
+                    // com
+                    Transform.translate(
+                      offset: const Offset(250, 300),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(minutes: 2),
+                        child: AnimatedContainer(
+                          height: 200,
+                          width: 200,
+                          duration: const Duration(
+                            minutes: 3,
                           ),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                "https://www.nicepng.com/png/detail/2-20644_earth-planet-globe-world-png-image-earth-with.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Text("4"),
                         ),
                       ),
                     ),
-                  ),
-                  Transform.translate(
-                    offset: const Offset(150, 400),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                            ),
-                            fit: BoxFit.cover,
+                    Transform.translate(
+                      offset: const Offset(-150, 110),
+                      child: AnimatedRotation(
+                        turns: turns,
+                        duration: const Duration(minutes: 2),
+                        child: AnimatedContainer(
+                          height: 200,
+                          width: 200,
+                          duration: const Duration(
+                            minutes: 3,
                           ),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                "https://e7.pngegg.com/pngimages/789/208/png-clipart-sun-sun-planet.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Text("5"),
                         ),
                       ),
                     ),
-                  ),
-                  Transform.translate(
-                    offset: const Offset(-50, 110),
-                    child: AnimatedRotation(
-                      turns: turns,
-                      duration: const Duration(minutes: 2),
-                      child: AnimatedContainer(
-                        height: 200,
-                        width: 200,
-                        duration: const Duration(
-                          minutes: 3,
-                        ),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ]),
+                  ],
+                ),
               ),
             ),
           ),
