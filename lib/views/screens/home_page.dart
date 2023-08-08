@@ -69,13 +69,11 @@ class _home_PageState extends State<home_Page>
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
+                              image: AssetImage(
+                                "assets/images/earth.png",
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                          child: const Text("1"),
                         ),
                       ),
                     ),
@@ -117,13 +115,11 @@ class _home_PageState extends State<home_Page>
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://www.pngmart.com/files/22/Planet-PNG-HD-Isolated.png",
+                              image: AssetImage(
+                                "assets/images/jupiter.png",
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                          child: Text("2"),
                         ),
                       ),
                     ),
@@ -142,13 +138,11 @@ class _home_PageState extends State<home_Page>
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://static.vecteezy.com/system/resources/thumbnails/016/778/853/small/planet-galaxy-space-free-png.png",
+                              image: AssetImage(
+                                "assets/images/mars.png",
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                          child: Text("3"),
                         ),
                       ),
                     ),
@@ -167,18 +161,16 @@ class _home_PageState extends State<home_Page>
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://www.nicepng.com/png/detail/2-20644_earth-planet-globe-world-png-image-earth-with.png",
+                              image: AssetImage(
+                                "assets/images/mercury.png",
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                          child: Text("4"),
                         ),
                       ),
                     ),
                     Transform.translate(
-                      offset: const Offset(-150, 110),
+                      offset: const Offset(-50, 100),
                       child: AnimatedRotation(
                         turns: turns,
                         duration: const Duration(minutes: 2),
@@ -191,13 +183,11 @@ class _home_PageState extends State<home_Page>
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: NetworkImage(
-                                "https://e7.pngegg.com/pngimages/789/208/png-clipart-sun-sun-planet.png",
+                              image: AssetImage(
+                                "assets/images/neptune.png",
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                          child: Text("5"),
                         ),
                       ),
                     ),
@@ -221,140 +211,3 @@ class _home_PageState extends State<home_Page>
     );
   }
 }
-
-// Padding(
-// padding: const EdgeInsets.all(18),
-// child: Column(
-// children: [
-// TweenAnimationBuilder(
-// duration: const Duration(milliseconds: 200),
-// builder: (context, val, _) {
-// return Align(
-// alignment: const Alignment(0, 2),
-// child: TweenAnimationBuilder(
-// tween: Tween(begin: 0.0, end: pi * 2),
-// duration: const Duration(milliseconds: 400),
-// builder: (context, value, child) {
-// return Transform.rotate(
-// angle: value,
-// alignment: const Alignment(0, 10),
-// child: AnimatedContainer(
-// height: 120,
-// width: 120,
-// decoration: const BoxDecoration(
-// image: DecorationImage(
-// image: NetworkImage(
-// "https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3BkMzYtMS1waWExOTk1Mi1qb2I2MjMucG5n.png?s=Ys1DrHPJkFIEZdaJsX9hbIscKhJE2nXtvXowjHQu8TY",
-// ),
-// fit: BoxFit.cover,
-// ),
-// shape: BoxShape.circle,
-// ),
-// duration: const Duration(
-// milliseconds: 300,
-// ),
-// ),
-// );
-// },
-// ),
-// );
-// },
-// tween: Tween(begin: 0.1, end: pi * 2),
-// ),
-// ],
-// ),
-// )
-
-// //
-// Transform.translate(
-//   offset: const Offset(20, 1),
-//   child: AnimatedRotation(
-//     turns: 50,
-//     duration: const Duration(minutes: 20),
-//     child: AnimatedContainer(
-//       height: 100,
-//       width: 100,
-//       duration: const Duration(
-//         minutes: 3,
-//       ),
-//       decoration: const BoxDecoration(
-//         shape: BoxShape.circle,
-//         image: DecorationImage(
-//           image: NetworkImage(
-//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-//           ),
-//           fit: BoxFit.cover,
-//         ),
-//       ),
-//     ),
-//   ),
-// ),
-// Transform.translate(
-//   offset: const Offset(20, 1),
-//   child: AnimatedRotation(
-//     turns: 50,
-//     duration: const Duration(minutes: 20),
-//     child: AnimatedContainer(
-//       height: 100,
-//       width: 100,
-//       duration: const Duration(
-//         minutes: 3,
-//       ),
-//       decoration: const BoxDecoration(
-//         shape: BoxShape.circle,
-//         image: DecorationImage(
-//           image: NetworkImage(
-//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-//           ),
-//           fit: BoxFit.cover,
-//         ),
-//       ),
-//     ),
-//   ),
-// ),
-// Transform.translate(
-//   offset: const Offset(20, 1),
-//   child: AnimatedRotation(
-//     turns: 50,
-//     duration: const Duration(minutes: 20),
-//     child: AnimatedContainer(
-//       height: 100,
-//       width: 100,
-//       duration: const Duration(
-//         minutes: 3,
-//       ),
-//       decoration: const BoxDecoration(
-//         shape: BoxShape.circle,
-//         image: DecorationImage(
-//           image: NetworkImage(
-//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-//           ),
-//           fit: BoxFit.cover,
-//         ),
-//       ),
-//     ),
-//   ),
-// ),
-// Transform.translate(
-//   offset: const Offset(20, 1),
-//   child: AnimatedRotation(
-//     turns: 50,
-//     duration: const Duration(minutes: 20),
-//     child: AnimatedContainer(
-//       height: 100,
-//       width: 100,
-//       duration: const Duration(
-//         minutes: 3,
-//       ),
-//       decoration: const BoxDecoration(
-//         shape: BoxShape.circle,
-//         image: DecorationImage(
-//           image: NetworkImage(
-//             "https://www.transparentpng.com/thumb/planet/colorful-planet-png-images-free-1QAjqO.png",
-//           ),
-//           fit: BoxFit.cover,
-//         ),
-//       ),
-//     ),
-//   ),
-// ),
