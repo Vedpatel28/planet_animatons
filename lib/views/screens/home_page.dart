@@ -1,6 +1,9 @@
 // ignore_for_file: camel_case_types
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:planet_animatons/models/planets_model.dart';
 
 class home_Page extends StatefulWidget {
   const home_Page({super.key});
@@ -14,6 +17,7 @@ class _home_PageState extends State<home_Page>
   late AnimationController controller;
 
   double turns = 0.0;
+  late Animation<double> rotation;
 
   @override
   void initState() {
@@ -22,7 +26,17 @@ class _home_PageState extends State<home_Page>
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
-        milliseconds: 600,
+        minutes: 2,
+      ),
+    )..forward();
+
+    rotation = Tween<double>(
+      begin: 0.0,
+      end: (pi / 12).toDouble(),
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Curves.bounceInOut,
       ),
     );
   }
@@ -30,82 +44,59 @@ class _home_PageState extends State<home_Page>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: Stack(
         children: [
           Transform.translate(
             offset: const Offset(-150, -200),
-            child: AnimatedRotation(
-              turns: turns,
-              curve: Curves.easeInOutQuint,
-              duration: const Duration(seconds: 1),
+            child: RotationTransition(
+              turns: Tween(
+                begin: 0.0,
+                end: 1.0,
+              ).animate(controller),
               child: AnimatedContainer(
                 duration: const Duration(seconds: 1),
-                height: 500,
-                width: 500,
-                decoration: const BoxDecoration(
-                  // gradient: LinearGradient(
-                  //   colors: [
-                  //     Colors.black54,
-                  //     Colors.blue,
-                  //   ],
-                  //   end: Alignment.bottomRight,
-                  // ),
+                height: 550,
+                width: 550,
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  ),
                 ),
                 child: Stack(
                   children: [
                     Transform.translate(
-                      offset: const Offset(130, -10),
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: const Duration(minutes: 2),
+                      offset: const Offset(100, -100),
+                      child: RotationTransition(
+                        turns: rotation,
                         child: AnimatedContainer(
                           height: 200,
                           width: 200,
                           duration: const Duration(
                             minutes: 3,
                           ),
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
                               image: AssetImage(
-                                "assets/images/earth.png",
+                                "${planets[0].iconImage}",
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    // Transform.translate(
-                    //   offset: const Offset(100, 200),
-                    //   child: AnimatedRotation(
-                    //     turns: turns,
-                    //     duration: const Duration(minutes: 2),
-                    //     child: AnimatedContainer(
-                    //       height: 200,
-                    //       width: 200,
-                    //       duration: const Duration(
-                    //         minutes: 3,
-                    //       ),
-                    //       decoration: const BoxDecoration(
-                    //         shape: BoxShape.circle,
-                    //         image: DecorationImage(
-                    //           image: NetworkImage(
-                    //             "https://nineplanets.org/wp-content/uploads/2020/03/mercury.png",
-                    //           ),
-                    //           fit: BoxFit.cover,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    //  com
                     Transform.translate(
-                      offset: const Offset(300, 100),
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: const Duration(minutes: 2),
+                      offset: const Offset(350, 120),
+                      child: RotationTransition(
+                        turns: Tween(
+                          begin: 0.0,
+                          end: 1.0,
+                        ).animate(controller),
                         child: AnimatedContainer(
                           height: 200,
                           width: 200,
@@ -125,10 +116,12 @@ class _home_PageState extends State<home_Page>
                     ),
                     // com
                     Transform.translate(
-                      offset: const Offset(-10, 300),
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: const Duration(minutes: 2),
+                      offset: const Offset(-80, 350),
+                      child: RotationTransition(
+                        turns: Tween(
+                          begin: 0.0,
+                          end: 1.0,
+                        ).animate(controller),
                         child: AnimatedContainer(
                           height: 200,
                           width: 200,
@@ -148,10 +141,12 @@ class _home_PageState extends State<home_Page>
                     ),
                     // com
                     Transform.translate(
-                      offset: const Offset(250, 300),
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: const Duration(minutes: 2),
+                      offset: const Offset(230, 350),
+                      child: RotationTransition(
+                        turns: Tween(
+                          begin: 0.0,
+                          end: 1.0,
+                        ).animate(controller),
                         child: AnimatedContainer(
                           height: 200,
                           width: 200,
@@ -170,10 +165,12 @@ class _home_PageState extends State<home_Page>
                       ),
                     ),
                     Transform.translate(
-                      offset: const Offset(-50, 100),
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: const Duration(minutes: 2),
+                      offset: const Offset(-150, 100),
+                      child: RotationTransition(
+                        turns: Tween(
+                          begin: 0.0,
+                          end: 1.0,
+                        ).animate(controller),
                         child: AnimatedContainer(
                           height: 200,
                           width: 200,
@@ -197,16 +194,6 @@ class _home_PageState extends State<home_Page>
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            turns += 1 / 8;
-          });
-        },
-        child: const Icon(
-          Icons.refresh,
-        ),
       ),
     );
   }
