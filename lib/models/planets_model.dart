@@ -5,13 +5,22 @@ class PlanetInfo {
   final String? description;
   final List<String>? images;
 
-  PlanetInfo(this.position, {this.name, this.iconImage, this.description, this.images,}
-      );
+  PlanetInfo(
+    this.position, {
+    this.name,
+    this.iconImage,
+    this.description,
+    this.images,
+  });
 }
 
 List<PlanetInfo> planets = [
   PlanetInfo(
-    1, name: 'Mercury', iconImage: 'assets/images/earth.png', description: "Zipping around the sun in only 88 days, Mercury is the closest planet to the sun, and it's also the smallest, only a little bit larger than Earth's moon. Because its so close to the sun (about two-fifths the distance between Earth and the sun), Mercury experiences dramatic changes in its day and night temperatures: Day temperatures can reach a scorching 840  F (450 C), which is hot enough to melt lead. Meanwhile on the night side, temperatures drop to minus 290 F (minus 180 C).",
+    1,
+    name: 'Mercury',
+    iconImage: 'assets/images/mercury.png',
+    description:
+        "Zipping around the sun in only 88 days, Mercury is the closest planet to the sun, and it's also the smallest, only a little bit larger than Earth's moon. Because its so close to the sun (about two-fifths the distance between Earth and the sun), Mercury experiences dramatic changes in its day and night temperatures: Day temperatures can reach a scorching 840  F (450 C), which is hot enough to melt lead. Meanwhile on the night side, temperatures drop to minus 290 F (minus 180 C).",
     images: [
       'https://cdn.pixabay.com/photo/2013/07/18/10/57/mercury-163610_1280.jpg',
       'https://solarsystem.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcVlHIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bfcefdbb03ebe1d73fbe2e043abde222b35f1c08/PIA13508.jpg?disposition=attachment',
