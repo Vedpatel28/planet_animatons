@@ -9,7 +9,6 @@ class info_page extends StatefulWidget {
 }
 
 class _info_pageState extends State<info_page> {
-
   Color primaryTextColor = const Color(0xFF414C6B);
   Color secondaryTextColor = const Color(0xFFE4979E);
   Color contentTextColor = const Color(0xff868686);
@@ -19,10 +18,7 @@ class _info_pageState extends State<info_page> {
 
   @override
   Widget build(BuildContext context) {
-    int index = ModalRoute
-        .of(context)!
-        .settings
-        .arguments as int;
+    int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(backgroundColor: Colors.transparent),
@@ -31,7 +27,7 @@ class _info_pageState extends State<info_page> {
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20, top: 32),
             child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -64,10 +60,7 @@ class _info_pageState extends State<info_page> {
                   ),
                   Container(
                     height: 140,
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width * 0.95,
+                    width: MediaQuery.of(context).size.width * 0.95,
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.vertical,
@@ -133,25 +126,33 @@ class _info_pageState extends State<info_page> {
             ),
           ),
           Positioned(
-              right: -70,
-              child: Hero(
-                  tag: planets[index].position,
-                  child: Image.asset(planets[index].iconImage.toString()))),
+            right: -70,
+            child: Hero(
+              tag: planets[index].position,
+              child: Image.asset(
+                planets[index].iconImage.toString(),
+              ),
+            ),
+          ),
           Positioned(
-              top: 60,
-              left: 32,
-              child: Text(
-                planets[index].position.toString(),
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 247,
-                    color: Colors.grey.withOpacity(0.2)),
-              )),
+            top: 60,
+            left: 32,
+            child: Text(
+              planets[index].position.toString(),
+              style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 247,
+                  color: Colors.grey.withOpacity(0.2)),
+            ),
+          ),
           IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios_new))
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+            ),
+          ),
         ],
       ),
     );
