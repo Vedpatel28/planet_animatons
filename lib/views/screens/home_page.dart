@@ -1,7 +1,6 @@
 // ignore_for_file: camel_case_types
 
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:planet_animatons/models/planets_model.dart';
 import 'package:planet_animatons/utiles/routes_utiles.dart';
@@ -33,24 +32,24 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 10,
+        seconds: 20,
       ),
     )..repeat();
 
     rotationController = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 10,
+        seconds: 20,
       ),
     )..repeat();
 
     rotation = Tween<double>(
       begin: pi,
-      end: (pi / 2).toDouble(),
+      end: (pi / 2.8).toDouble(),
     ).animate(
       CurvedAnimation(
         parent: rotationController,
-        curve: Curves.easeIn,
+        curve: Curves.easeInOut,
       ),
     );
 
@@ -60,7 +59,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: Curves.easeIn,
+        curve: Curves.easeInOut,
       ),
     );
   }
@@ -93,7 +92,10 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                 Transform.translate(
                   offset: const Offset(-70, 70),
                   child: RotationTransition(
-                    turns: Tween(begin: pi,end: pi / 2,).animate(controller),
+                    turns: Tween(
+                      begin: pi,
+                      end: pi / 2,
+                    ).animate(controller),
                     child: Container(
                       height: 150,
                       width: double.infinity,
@@ -168,7 +170,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                       child: Stack(
                         children: [
                           Transform.translate(
-                            offset: const Offset(10, 120),
+                            offset: const Offset(10, -220),
                             child: RotationTransition(
                               turns: inRotation,
                               child: AnimatedContainer(
@@ -208,7 +210,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                         children: [
                           //  Black Mercuric
                           Transform.translate(
-                            offset: const Offset(150, 120),
+                            offset: const Offset(-200, -320),
                             child: RotationTransition(
                               turns: inRotation,
                               child: AnimatedContainer(
@@ -247,7 +249,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                       child: Stack(
                         children: [
                           Transform.translate(
-                            offset: const Offset(280, 120),
+                            offset: const Offset(10, 300),
                             child: RotationTransition(
                               turns: inRotation,
                               child: AnimatedContainer(
@@ -288,7 +290,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                         children: [
                           //  Black Mercuric
                           Transform.translate(
-                            offset: const Offset(330, 120),
+                            offset: const Offset(10, -480),
                             child: RotationTransition(
                               turns: inRotation,
                               child: AnimatedContainer(
@@ -328,7 +330,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                       child: Stack(
                         children: [
                           Transform.translate(
-                            offset: const Offset(440, 320),
+                            offset: const Offset(440, 420),
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.of(context).pushNamed(
@@ -360,13 +362,68 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                     ),
                   ),
                 ),
+                Transform.translate(
+                  offset: const Offset(0, 600),
+                  child: SizedBox(
+                    height: 250,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 250,
+                          width: 380,
+                          child: ListView.builder(
+                            itemCount: planets.length,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                    AllRoutes.infoPage,
+                                    arguments: index,
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    RotationTransition(
+                                      turns: inRotation,
+                                      child: Hero(
+                                        tag: index,
+                                        child: Container(
+                                          height: 200,
+                                          width: 200,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  "${planets[index].iconImage}"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    // Hero(
+                                    //   tag: index + 5,
+                                    //   child: Text(
+                                    //     "${planets[index].name}",
+                                    //     style: GoogleFonts.gaegu(
+                                    //       fontSize: 24,
+                                    //       fontWeight: FontWeight.bold,
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
-          Container(
-            height: 140,
-            width: double.infinity,
-            color: Colors.red,
           ),
         ],
       ),
@@ -374,3 +431,112 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
     );
   }
 }
+
+// GridView.builder(
+//   gridDelegate:
+//   const SliverGridDelegateWithFixedCrossAxisCount(
+//     crossAxisCount: 1,
+//     childAspectRatio: 4/1,
+//   ),
+//   scrollDirection: Axis.horizontal,
+//   itemCount: planets.length,
+//   itemBuilder: (context, index) {
+//     return Column(
+//       children: [
+//         Expanded(
+//           child: Container(
+//             width: 200,
+//             decoration: BoxDecoration(
+//               image: DecorationImage(
+//                 image:
+//                 AssetImage("${planets[index].iconImage}"),
+//               ),
+//             ),
+//           ),
+//         ),
+//         Expanded(
+//           flex: 1,
+//           child: Text("${planets[index].name}"),
+//         ),
+//       ],
+//     );
+//   },
+// ),
+
+// Transform.translate(
+//   offset: const Offset(0, 600),
+//   child: CarouselSlider(
+//     items: List.generate(
+//       planets.length,
+//       (index) => Container(
+//         width: 200,
+//         decoration: BoxDecoration(
+//           image: DecorationImage(
+//             image: AssetImage(
+//               "${planets[index].iconImage}",
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//     options: CarouselOptions(
+//       scrollDirection: Axis.horizontal,
+//       autoPlay: true,
+//       autoPlayAnimationDuration:
+//       const Duration(milliseconds: 50),
+//       autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+//     ),
+//   ),
+// ),
+// Transform.translate(
+//   offset: const Offset(-120, 700),
+//   child: CarouselSlider(
+//     items: List.generate(
+//       planets.length,
+//       (index) => Container(
+//         width: 200,
+//         decoration: BoxDecoration(
+//           image: DecorationImage(
+//             image: AssetImage(
+//               "${planets[index].iconImage}",
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//     options: CarouselOptions(
+//       scrollDirection: Axis.horizontal,
+//       autoPlay: true,
+//       initialPage: 7,
+//       autoPlayAnimationDuration:
+//       const Duration(milliseconds: 50),
+//       autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+//     ),
+//   ),
+// ),
+// Transform.translate(
+//   offset: const Offset(120, 700),
+//   child: CarouselSlider(
+//     items: List.generate(
+//       planets.length,
+//       (index) => Container(
+//         width: 200,
+//         decoration: BoxDecoration(
+//           image: DecorationImage(
+//             image: AssetImage(
+//               "${planets[index].iconImage}",
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//     options: CarouselOptions(
+//       scrollDirection: Axis.horizontal,
+//       autoPlay: true,
+//       initialPage: 3,
+//       autoPlayAnimationDuration:
+//       const Duration(milliseconds: 50),
+//       autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+//     ),
+//   ),
+// ),

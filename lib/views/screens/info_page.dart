@@ -21,7 +21,12 @@ class _info_pageState extends State<info_page> {
     int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(backgroundColor: Colors.transparent),
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: Colors.transparent,
+          )),
       body: Stack(
         children: <Widget>[
           Padding(
@@ -38,7 +43,6 @@ class _info_pageState extends State<info_page> {
                     "${planets[index].name}",
                     style: TextStyle(
                         fontSize: 55,
-                        fontFamily: 'Avenir',
                         color: primaryTextColor,
                         fontWeight: FontWeight.w900),
                     textAlign: TextAlign.left,
@@ -47,7 +51,6 @@ class _info_pageState extends State<info_page> {
                     "Solar System",
                     style: TextStyle(
                         fontSize: 30,
-                        fontFamily: 'Avenir',
                         color: primaryTextColor,
                         fontWeight: FontWeight.w300),
                     textAlign: TextAlign.left,
@@ -69,7 +72,6 @@ class _info_pageState extends State<info_page> {
                         style: TextStyle(
                             fontSize: 20,
                             overflow: TextOverflow.ellipsis,
-                            fontFamily: 'Avenir',
                             color: contentTextColor,
                             fontWeight: FontWeight.w400),
                         textAlign: TextAlign.left,
@@ -91,7 +93,6 @@ class _info_pageState extends State<info_page> {
                     style: TextStyle(
                         fontSize: 24,
                         overflow: TextOverflow.ellipsis,
-                        fontFamily: 'Avenir',
                         color: contentTextColor,
                         fontWeight: FontWeight.w300),
                     textAlign: TextAlign.center,
@@ -128,7 +129,7 @@ class _info_pageState extends State<info_page> {
           Positioned(
             right: -70,
             child: Hero(
-              tag: planets[index].position,
+              tag: index,
               child: Image.asset(
                 planets[index].iconImage.toString(),
               ),
@@ -145,12 +146,15 @@ class _info_pageState extends State<info_page> {
                   color: Colors.grey.withOpacity(0.2)),
             ),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
+          Transform.translate(
+            offset: const Offset(0, 30),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+              ),
             ),
           ),
         ],
