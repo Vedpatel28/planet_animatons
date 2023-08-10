@@ -35,6 +35,7 @@ List<PlanetInfo> planets = [
       images: [
         'https://cdn.pixabay.com/photo/2011/12/13/14/39/venus-11022_1280.jpg',
         'https://solarsystem.nasa.gov/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcjhQIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ab0be61e3f61623e10ec25afdee91cc1a5db6830/PIA00148_1280.jpg?disposition=attachment',
+        'https://e7.pngegg.com/pngimages/508/473/png-clipart-venus-planet-computer-icons-venus-venus-desktop-wallpaper.png',
       ]),
   PlanetInfo(3,
       name: 'Earth',
@@ -71,7 +72,7 @@ List<PlanetInfo> planets = [
       ]),
   PlanetInfo(6,
       name: 'Saturn',
-      iconImage: 'assets/images/saturn.png',
+      iconImage: 'assets/images/Saturn.png',
       description:
           "The sixth planet from the sun, Saturn is known most for its rings. When polymath Galileo Galilei first studied Saturn in the early 1600s, he thought it was an object with three parts: a planet and two large moons on either side. Not knowing he was seeing a planet with rings, the stumped astronomer entered a small drawing — a symbol with one large circle and two smaller ones — in his notebook, as a noun in a sentence describing his discovery. More than 40 years later, Christiaan Huygens proposed that they were rings. The rings are made of ice and rock and scientists are not yet sure how they formed. The gaseous planet is mostly hydrogen and helium and has numerous moons.",
       images: [
@@ -93,7 +94,7 @@ List<PlanetInfo> planets = [
       ]),
   PlanetInfo(8,
       name: 'Neptune',
-      iconImage: 'assets/images/neptune.png',
+      iconImage: 'assets/images/Neptune.png',
       description:
           "The eighth planet from the sun, Neptune is about the size of Uranus and is known for supersonic strong winds. Neptune is far out and cold. The planet is more than 30 times as far from the sun as Earth. Neptune was the first planet predicted to exist by using math, before it was visually detected. Irregularities in the orbit of Uranus led French astronomer Alexis Bouvard to suggest some other planet might be exerting a gravitational tug. German astronomer Johann Galle used calculations to help find Neptune in a telescope. Neptune is about 17 times as massive as Earth and has a rocky core.",
       images: [

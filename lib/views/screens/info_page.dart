@@ -56,9 +56,10 @@ class _info_pageState extends State<info_page> {
                   Text(
                     "Solar System",
                     style: TextStyle(
-                        fontSize: 30,
-                        color: primaryTextColor,
-                        fontWeight: FontWeight.w300),
+                      fontSize: 30,
+                      color: primaryTextColor,
+                      fontWeight: FontWeight.w300,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                   const Divider(
@@ -73,12 +74,13 @@ class _info_pageState extends State<info_page> {
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Text(
-                        planets[index].description.toString(),
+                        "${planets[index].description}",
                         style: TextStyle(
-                            fontSize: 20,
-                            overflow: TextOverflow.ellipsis,
-                            color: contentTextColor,
-                            fontWeight: FontWeight.w400),
+                          fontSize: 20,
+                          overflow: TextOverflow.ellipsis,
+                          color: contentTextColor,
+                          fontWeight: FontWeight.w400,
+                        ),
                         textAlign: TextAlign.left,
                         maxLines: 60,
                       ),
@@ -96,10 +98,11 @@ class _info_pageState extends State<info_page> {
                   Text(
                     "Gallery",
                     style: TextStyle(
-                        fontSize: 24,
-                        overflow: TextOverflow.ellipsis,
-                        color: contentTextColor,
-                        fontWeight: FontWeight.w300),
+                      fontSize: 24,
+                      overflow: TextOverflow.ellipsis,
+                      color: contentTextColor,
+                      fontWeight: FontWeight.w300,
+                    ),
                     textAlign: TextAlign.center,
                     maxLines: 40,
                   ),
@@ -109,20 +112,14 @@ class _info_pageState extends State<info_page> {
                   Container(
                     height: 250,
                     child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
-                      itemCount: planets[index].images!.length,
+                      itemCount: 3,
                       itemBuilder: (context, index) {
                         return Card(
                           clipBehavior: Clip.antiAlias,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24)),
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Image.network(
-                              "${planets[index].images!}",
-                              fit: BoxFit.cover,
-                            ),
+                          child: Image.network(
+                            planets[index].images![index],
+                            fit: BoxFit.cover,
                           ),
                         );
                       },
@@ -132,12 +129,16 @@ class _info_pageState extends State<info_page> {
               ),
             ),
           ),
-          Positioned(
-            right: -70,
+          Transform.translate(
+            offset: const Offset(130, -260),
             child: Hero(
               tag: index,
-              child: Image.asset(
-                planets[index].iconImage.toString(),
+              child: Container(
+                height: s.height*0.8,
+                width: s.width*1,
+                child: Image.asset(
+                  "${planets[index].iconImage}",
+                ),
               ),
             ),
           ),
@@ -145,22 +146,11 @@ class _info_pageState extends State<info_page> {
             top: 60,
             left: 32,
             child: Text(
-              planets[index].position.toString(),
+              "${planets[index].position}",
               style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 247,
                   color: Colors.grey.withOpacity(0.2)),
-            ),
-          ),
-          Transform.translate(
-            offset: const Offset(0, 30),
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-              ),
             ),
           ),
         ],

@@ -76,22 +76,14 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 750,
-            decoration: BoxDecoration(
+            height: s.height,
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeuMDqI61u3j9QlKA_-7x364j9CJrTZupT4A&usqp=CAU",
+                  "https://wallpapercave.com/wp/wp4575286.jpg",
                 ),
                 fit: BoxFit.cover,
               ),
-              // gradient: LinearGradient(
-              //   colors: [
-              //     gradientStartColor,
-              //     gradientEndColor,
-              //   ],
-              //   begin: Alignment.topCenter,
-              //   end: Alignment.bottomCenter,
-              // ),
             ),
             child: Stack(
               children: [
@@ -369,7 +361,6 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                     ),
                   ),
                 ),
-                // Transform.translate(offset: const Offset(0, 600),child: const Divider(height: 2,color: Colors.black,)),
                 Transform.translate(
                   offset: const Offset(0, 450),
                   child: SizedBox(
@@ -377,10 +368,9 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                     child: Row(
                       children: [
                         Container(
-                          height: 400,
-                          width: 410,
+                          height: 500,
+                          width: 390,
                           decoration: const BoxDecoration(
-                            color: Colors.white,
                             image: DecorationImage(
                               image: AssetImage(
                                 "assets/images/wooden.webp",
@@ -426,7 +416,6 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                                           image: AssetImage(
                                             "${planets[index].iconImage}",
                                           ),
-                                          alignment: const Alignment(0,2.4),
                                         ),
                                       ),
                                     ),
