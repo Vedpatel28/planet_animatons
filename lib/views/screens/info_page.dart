@@ -18,17 +18,23 @@ class _info_pageState extends State<info_page> {
 
   @override
   Widget build(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
     int index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          leading: const Icon(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
             Icons.arrow_back_ios_new_outlined,
-            color: Colors.transparent,
-          )),
+          ),
+        ),
+      ),
       body: Stack(
-        children: <Widget>[
+        children: [
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20, top: 32),
             child: SingleChildScrollView(
@@ -63,9 +69,8 @@ class _info_pageState extends State<info_page> {
                   ),
                   Container(
                     height: 140,
-                    width: MediaQuery.of(context).size.width * 0.95,
+                    width: s.width * 0.95,
                     child: SingleChildScrollView(
-                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       child: Text(
                         planets[index].description.toString(),
@@ -113,11 +118,12 @@ class _info_pageState extends State<info_page> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(24)),
                           child: AspectRatio(
-                              aspectRatio: 1,
-                              child: Image.network(
-                                planets[index].images![index],
-                                fit: BoxFit.cover,
-                              )),
+                            aspectRatio: 1,
+                            child: Image.network(
+                              "${planets[index].images!}",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         );
                       },
                     ),
