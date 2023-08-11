@@ -16,10 +16,13 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
 
   late Animation<double> planetRotation;
   late Animation<double> opacity;
+  late Animation<double> scale;
+  late Animation<AlignmentGeometry> descriptionAnimation;
 
   @override
   void initState() {
     super.initState();
+
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -30,7 +33,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     opacityController = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 1,
+        seconds: 3,
       ),
     )..forward();
 
@@ -40,7 +43,27 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: Curves.easeInOut,
+        curve: const Interval(0.6, 1.0),
+      ),
+    );
+
+    descriptionAnimation = Tween(
+      begin: Alignment.bottomCenter,
+      end: Alignment.topCenter,
+    ).animate(
+      CurvedAnimation(
+        parent: opacityController,
+        curve: Interval(0.5, 1.0),
+      ),
+    );
+
+    scale = Tween(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: opacityController,
+        curve: Curves.bounceInOut,
       ),
     );
 
@@ -50,7 +73,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: opacityController,
-        curve: Curves.bounceIn,
+        curve: const Interval(0.4, 0.6),
       ),
     );
   }
@@ -81,7 +104,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
       ),
       body: AnimatedBuilder(
         animation: controller,
-        builder: (context,val) {
+        builder: (context, val) {
           return Stack(
             children: [
               Padding(
@@ -100,20 +123,24 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         child: Text(
                           "${planets[index].name}",
                           style: TextStyle(
-                              fontSize: 55,
-                              color: primaryTextColor,
-                              fontWeight: FontWeight.w900),
+                            fontSize: 55,
+                            color: primaryTextColor,
+                            fontWeight: FontWeight.w900,
+                          ),
                           textAlign: TextAlign.left,
                         ),
                       ),
-                      Text(
-                        "Solar System",
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: primaryTextColor,
-                          fontWeight: FontWeight.w300,
+                      Transform.scale(
+                        scale: scale.value,
+                        child: Text(
+                          "Solar System",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: primaryTextColor,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          textAlign: TextAlign.left,
                         ),
-                        textAlign: TextAlign.left,
                       ),
                       const Divider(
                         color: Colors.black38,
@@ -126,16 +153,19 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         width: s.width * 0.95,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
-                          child: Text(
-                            "${planets[index].description}",
-                            style: TextStyle(
-                              fontSize: 20,
-                              overflow: TextOverflow.ellipsis,
-                              color: contentTextColor,
-                              fontWeight: FontWeight.w400,
+                          child: AlignTransition(
+                            alignment: descriptionAnimation,
+                            child: Text(
+                              "${planets[index].description}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis,
+                                color: contentTextColor,
+                                fontWeight: FontWeight.w400,
+                              ),
+                              textAlign: TextAlign.left,
+                              maxLines: 60,
                             ),
-                            textAlign: TextAlign.left,
-                            maxLines: 60,
                           ),
                         ),
                       ),
@@ -214,7 +244,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
               ),
             ],
           );
-        }
+        },
       ),
     );
   }
