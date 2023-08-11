@@ -12,7 +12,11 @@ visually stunning experience.
 
 "Galaxy Planets (Animator)" aims to deliver an engaging and visually appealing animation
 experience for users. By incorporating Implicit and Explicit Animation techniques, along with
-Shared Preferences, a Local JSON Bank, fetching planet details, saving favorites, light and dark
+Shared Preferences, a Local JSON Bank, fetching planet details, saving favorites, light and dar
+
+https://github.com/Vedpatel28/planet_animatons/assets/130833918/4f066e71-c87d-4b18-82c7-a99a38dcb192
+
+k
 themes, a splash screen, and detailed planet screens, the app offers a comprehensive solution for
 users to explore the wonders of the galaxy through captivating animations.
 
