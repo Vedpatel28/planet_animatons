@@ -2,8 +2,9 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:planet_animatons/models/planets_model.dart';
+import 'package:planet_animatons/controller/planet_controller.dart';
 import 'package:planet_animatons/utiles/routes_utiles.dart';
+import 'package:provider/provider.dart';
 
 class home_Page extends StatefulWidget {
   const home_Page({super.key});
@@ -72,270 +73,105 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            height: s.height,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  "https://wallpapercave.com/wp/wp4575286.jpg",
+      body: Consumer<planet_Provider>(builder: (context, provider, _) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              height: s.height,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    "https://wallpapercave.com/wp/wp4575286.jpg",
+                  ),
+                  fit: BoxFit.cover,
                 ),
-                fit: BoxFit.cover,
               ),
-            ),
-            child: Stack(
-              children: [
-                // Sun
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: Tween(
-                      begin: pi,
-                      end: pi / 2,
-                    ).animate(controller),
-                    child: Container(
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/sun.png",
+              child: Stack(
+                children: [
+                  // Sun
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: Tween(
+                        begin: pi,
+                        end: pi / 2,
+                      ).animate(controller),
+                      child: Container(
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/sun.png",
+                            ),
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          //  Black Mercuric
-                          Transform.translate(
-                            offset: const Offset(200, 150),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pushNamed(
-                                    AllRoutes.infoPage,
-                                    arguments: 0);
-                              },
-                              child: RotationTransition(
-                                turns: inRotation,
-                                child: Container(
-                                  height: 120,
-                                  width: 120,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        "${planets[0].iconImage}",
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            //  Black Mercuric
+                            Transform.translate(
+                              offset: const Offset(200, 150),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                      AllRoutes.infoPage,
+                                      arguments: 0);
+                                },
+                                child: RotationTransition(
+                                  turns: inRotation,
+                                  child: Container(
+                                    height: 120,
+                                    width: 120,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          "${provider.allPlanets[3].iconImage}",
+                                        ),
+                                        fit: BoxFit.cover,
                                       ),
-                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          Transform.translate(
-                            offset: const Offset(310, -220),
-                            child: RotationTransition(
-                              turns: inRotation,
-                              child: AnimatedContainer(
-                                height: 120,
-                                width: 120,
-                                duration: const Duration(
-                                  minutes: 3,
-                                ),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        "${planets[2].iconImage}",
-                                      ),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          //  Black Mercuric
-                          Transform.translate(
-                            offset: const Offset(-10, -320),
-                            child: RotationTransition(
-                              turns: inRotation,
-                              child: AnimatedContainer(
-                                height: 120,
-                                width: 120,
-                                duration: const Duration(
-                                  minutes: 3,
-                                ),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        "${planets[3].iconImage}",
-                                      ),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          Transform.translate(
-                            offset: const Offset(10, 300),
-                            child: RotationTransition(
-                              turns: inRotation,
-                              child: AnimatedContainer(
-                                height: 120,
-                                width: 120,
-                                duration: const Duration(
-                                  minutes: 3,
-                                ),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      "${planets[4].iconImage}",
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          //  Black Mercuric
-                          Transform.translate(
-                            offset: const Offset(200, -400),
-                            child: RotationTransition(
-                              turns: inRotation,
-                              child: AnimatedContainer(
-                                height: 120,
-                                width: 120,
-                                duration: const Duration(
-                                  minutes: 3,
-                                ),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      "${planets[6].iconImage}",
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(-70, 70),
-                  child: RotationTransition(
-                    turns: rotation,
-                    child: AnimatedContainer(
-                      duration: const Duration(seconds: 1),
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Stack(
-                        children: [
-                          Transform.translate(
-                            offset: const Offset(400, 200),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pushNamed(
-                                    AllRoutes.infoPage,
-                                    arguments: 7);
-                              },
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            Transform.translate(
+                              offset: const Offset(310, -220),
                               child: RotationTransition(
                                 turns: inRotation,
                                 child: AnimatedContainer(
@@ -348,11 +184,201 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          "${planets[7].iconImage}",
+                                          "${provider.allPlanets[4].iconImage}",
                                         ),
                                         fit: BoxFit.cover),
                                   ),
                                 ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            //  Black Mercuric
+                            Transform.translate(
+                              offset: const Offset(-10, -320),
+                              child: RotationTransition(
+                                turns: inRotation,
+                                child: AnimatedContainer(
+                                  height: 120,
+                                  width: 120,
+                                  duration: const Duration(
+                                    minutes: 3,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                          "${provider.allPlanets[5].iconImage}",
+                                        ),
+                                        fit: BoxFit.cover),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            Transform.translate(
+                              offset: const Offset(10, 300),
+                              child: RotationTransition(
+                                turns: inRotation,
+                                child: AnimatedContainer(
+                                  height: 120,
+                                  width: 120,
+                                  duration: const Duration(
+                                    minutes: 3,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "${provider.allPlanets[6].iconImage}",
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            //  Black Mercuric
+                            Transform.translate(
+                              offset: const Offset(200, -400),
+                              child: RotationTransition(
+                                turns: inRotation,
+                                child: AnimatedContainer(
+                                  height: 120,
+                                  width: 120,
+                                  duration: const Duration(
+                                    minutes: 3,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "${provider.allPlanets[6].iconImage}",
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(-70, 70),
+                    child: RotationTransition(
+                      turns: rotation,
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 1),
+                        height: 150,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Stack(
+                          children: [
+                            Transform.translate(
+                              offset: const Offset(400, 200),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                      AllRoutes.infoPage,
+                                      arguments: 7);
+                                },
+                                child: RotationTransition(
+                                  turns: inRotation,
+                                  child: AnimatedContainer(
+                                    height: 120,
+                                    width: 120,
+                                    duration: const Duration(
+                                      minutes: 3,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          "${provider.allPlanets[7].iconImage}",
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(0, 450),
+                    child: SizedBox(
+                      height: 600,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 500,
+                            width: 390,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  "assets/images/wooden.webp",
+                                ),
+                                fit: BoxFit.fitHeight,
                               ),
                             ),
                           ),
@@ -360,80 +386,59 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                ),
-                Transform.translate(
-                  offset: const Offset(0, 450),
-                  child: SizedBox(
-                    height: 600,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 500,
-                          width: 390,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                "assets/images/wooden.webp",
-                              ),fit: BoxFit.fitHeight,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Transform.translate(
-                  offset: const Offset(0, 650),
-                  child: Container(
-                    height: 250,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 250,
-                          width: s.width * 1,
-                          child: ListView.builder(
-                            itemCount: planets.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).pushNamed(
-                                    AllRoutes.infoPage,
-                                    arguments: index,
-                                  );
-                                },
-                                child: RotationTransition(
-                                  turns: inRotation,
-                                  child: Hero(
-                                    tag: index,
-                                    child: Container(
-                                      height: 200,
-                                      width: 200,
-                                      margin: const EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            "${planets[index].iconImage}",
+                  Transform.translate(
+                    offset: const Offset(0, 650),
+                    child: Container(
+                      height: 250,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 250,
+                            width: s.width * 1,
+                            child: ListView.builder(
+                              itemCount: provider.allPlanets.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed(
+                                      AllRoutes.infoPage,
+                                      arguments: index,
+                                    );
+                                  },
+                                  child: RotationTransition(
+                                    turns: inRotation,
+                                    child: Hero(
+                                      tag: index,
+                                      child: Container(
+                                        height: 200,
+                                        width: 200,
+                                        margin: const EdgeInsets.all(12),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              "${provider.allPlanets[index].iconImage}",
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        );
+      }),
       backgroundColor: gradientEndColor,
     );
   }

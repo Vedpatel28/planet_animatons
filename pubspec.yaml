@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider:
   google_fonts:
+  provider:
   loading_animation_widget:
 
 dev_dependencies:
@@ -63,6 +64,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/json/planet.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
