@@ -151,13 +151,13 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 30,
                         ),
-                        Container(
-                          height: 140,
-                          width: s.width * 0.95,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: AlignTransition(
-                              alignment: descriptionAnimation,
+                        Opacity(
+                          opacity: scale.value,
+                          child: SizedBox(
+                            height: 180,
+                            width: s.width * 0.95,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
                               child: Text(
                                 "${provider.allPlanets[index].description}",
                                 style: TextStyle(
@@ -195,22 +195,21 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 15,
                         ),
-                        // Container(
-                        //   height: 250,
-                        //   child: ListView.builder(
-                        //     scrollDirection: Axis.horizontal,
-                        //     itemCount: 3,
-                        //     itemBuilder: (context, index) {
-                        //       return Card(
-                        //         clipBehavior: Clip.antiAlias,
-                        //         child: Image.network(
-                        //           provider.allPlanets[index].images![index],
-                        //           fit: BoxFit.cover,
-                        //         ),
-                        //       );
-                        //     },
-                        //   ),
-                        // )
+                        Container(
+                          height: 250,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 3,
+                            itemBuilder: (context, index) => Card(
+                              shadowColor: Colors.black,
+                              clipBehavior: Clip.antiAlias,
+                              child: Image.network(
+                                provider.allPlanets[index].images[index],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

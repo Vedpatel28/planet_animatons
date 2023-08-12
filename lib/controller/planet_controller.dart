@@ -12,9 +12,6 @@ class planet_Provider extends ChangeNotifier {
 
   planet_Provider() {
     loadJSON();
-    print("++++++++++++++++============");
-    print("$allPlanets");
-    print("++++++++++++++++============");
     notifyListeners();
   }
 
@@ -23,17 +20,8 @@ class planet_Provider extends ChangeNotifier {
 
     List allPlanet = jsonDecode(res);
 
-    print("+++++++++++++++++=======================================");
-    print("+++++++++++++++++=======================================");
-    print("+++++++++++++++++=======================================");
-    print(allPlanet);
-    print("+++++++++++++===========++++++++++++====================");
-    print("+++++++++++++===========++++++++++++====================");
-    print("+++++++++++++===========++++++++++++====================");
-
     allPlanets = allPlanet.map((e) => PlanetInfo.fromMap(planet: e)).toList();
 
-    // allPlanets = allPlanet.map((e) => PlanetInfo.fromMap(planet: e)).toList();
     notifyListeners();
   }
 }
