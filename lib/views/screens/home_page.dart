@@ -143,7 +143,7 @@ class _home_PageState extends State<home_Page> with TickerProviderStateMixin {
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
                                         image: AssetImage(
-                                          "${provider.allPlanets[3].iconImage}",
+                                          "${provider.allPlanets[2].iconImage}",
                                         ),
                                         fit: BoxFit.cover,
                                       ),

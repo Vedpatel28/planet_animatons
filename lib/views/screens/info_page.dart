@@ -34,7 +34,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     opacityController = AnimationController(
       vsync: this,
       duration: const Duration(
-        seconds: 3,
+        seconds: 2,
       ),
     )..forward();
 
@@ -44,7 +44,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: controller,
-        curve: const Interval(0.6, 1.0),
+        curve: Curves.easeInOut,
       ),
     );
 
@@ -54,7 +54,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: opacityController,
-        curve: Interval(0.5, 1.0),
+        curve: const Interval(0.0, 0.4),
       ),
     );
 
@@ -64,7 +64,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: opacityController,
-        curve: Curves.bounceInOut,
+        curve: const Interval(0.4, 0.7),
       ),
     );
 
@@ -74,7 +74,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
     ).animate(
       CurvedAnimation(
         parent: opacityController,
-        curve: const Interval(0.4, 0.6),
+        curve: const Interval(0.7, 1.0),
       ),
     );
   }
@@ -195,22 +195,22 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 15,
                         ),
-                        Container(
-                          height: 250,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 3,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                clipBehavior: Clip.antiAlias,
-                                // child: Image.network(
-                                //   provider.allPlanets[index].images![index],
-                                //   fit: BoxFit.cover,
-                                // ),
-                              );
-                            },
-                          ),
-                        )
+                        // Container(
+                        //   height: 250,
+                        //   child: ListView.builder(
+                        //     scrollDirection: Axis.horizontal,
+                        //     itemCount: 3,
+                        //     itemBuilder: (context, index) {
+                        //       return Card(
+                        //         clipBehavior: Clip.antiAlias,
+                        //         child: Image.network(
+                        //           provider.allPlanets[index].images![index],
+                        //           fit: BoxFit.cover,
+                        //         ),
+                        //       );
+                        //     },
+                        //   ),
+                        // )
                       ],
                     ),
                   ),
@@ -237,7 +237,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                   child: Opacity(
                     opacity: opacity.value,
                     child: Text(
-                      "$index",
+                      "${index + 1}",
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 247,
