@@ -195,7 +195,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                         const SizedBox(
                           height: 15,
                         ),
-                        Container(
+                        SizedBox(
                           height: 250,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -220,7 +220,7 @@ class _info_pageState extends State<info_page> with TickerProviderStateMixin {
                     tag: index,
                     child: RotationTransition(
                       turns: planetRotation,
-                      child: Container(
+                      child: SizedBox(
                         height: s.height * 0.8,
                         width: s.width * 1,
                         child: Image.asset(
