@@ -1,6 +1,6 @@
 # Galaxy Planets (Animator)
 
-https://github.com/Vedpatel28/planet_animatons/assets/130833918/7fc86f19-b629-43a2-a73e-c801951c4466
+https://github.com/Vedpatel28/planet_animatons/assets/130833918/95d24b1e-726d-4996-8662-afa3a11856f8
 
 ## Project Description:
 
